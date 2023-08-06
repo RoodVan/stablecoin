@@ -5580,7 +5580,12 @@ function goTo(line, t) {
 
 /* Onload DOM                                        
 --------------------------------------------------------*/
+// $(window).load(function () {
+//   $(".preloader").fadeOut("slow");
+// });
+
 $(function () {
+  $(".preloader").fadeOut("slow");
   //mob menu
   $(".js-toggle-menu").on("click", function () {
     $("body").toggleClass("menu--open");

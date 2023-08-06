@@ -1388,4 +1388,15 @@ table {
   //   height: 200px;
   // }
 }
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #0f1723 url(../img/loader-blue.svg) no-repeat center center / 100px 100px;
+}
+
 /* @end */
