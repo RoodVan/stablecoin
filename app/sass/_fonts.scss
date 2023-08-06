@@ -1,0 +1,38 @@
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/sfpd/SFProDisplay-Regular.eot");
+  src: local("SF Pro Display Regular"), local("SFProDisplay-Regular"),
+    url("../fonts/sfpd/SFProDisplay-Regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/sfpd/SFProDisplay-Regular.woff2") format("woff2"),
+    url("../fonts/sfpd/SFProDisplay-Regular.woff") format("woff"),
+    url("../fonts/sfpd/SFProDisplay-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/sfpd/SFProDisplay-Medium.eot");
+  src: local("SF Pro Display Medium"), local("SFProDisplay-Medium"),
+    url("../fonts/sfpd/SFProDisplay-Medium.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/sfpd/SFProDisplay-Medium.woff2") format("woff2"),
+    url("../fonts/sfpd/SFProDisplay-Medium.woff") format("woff"),
+    url("../fonts/sfpd/SFProDisplay-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("../fonts/sfpd/SFProDisplay-Bold.eot");
+  src: local("SF Pro Display Bold"), local("SFProDisplay-Bold"),
+    url("../fonts/sfpd/SFProDisplay-Bold.eot?#iefix")
+      format("embedded-opentype"),
+    url("../fonts/sfpd/SFProDisplay-Bold.woff2") format("woff2"),
+    url("../fonts/sfpd/SFProDisplay-Bold.woff") format("woff"),
+    url("../fonts/sfpd/SFProDisplay-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
