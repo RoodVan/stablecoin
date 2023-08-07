@@ -611,7 +611,7 @@ footer {
     }
   }
   @media screen and (max-width: 620px) {
-    background: url(../img/bg-s.svg) no-repeat center bottom / cover;
+    background: url(../img/bg-s.svg) no-repeat center center / contain;
     &-in {
       max-width: 100%;
       padding-left: 0;
@@ -632,6 +632,7 @@ footer {
   padding-top: 100px;
   padding-bottom: 92px;
   position: relative;
+  overflow: hidden;
   &:after {
     content: "";
     position: absolute;
@@ -672,7 +673,8 @@ footer {
       stroke-width: 1.5;
       stroke-dasharray: 100;
       stroke-dashoffset: 55;
-      // animation: circle-1 2s;
+      will-change: stroke-dashoffset, stroke;
+      //animation: circle-1 2s linear;
     }
     .c3 {
       stroke-linecap: butt;
@@ -696,6 +698,11 @@ footer {
       max-width: 508px;
       height: 508px;
       position: relative;
+      &.animated {
+        .c2 {
+          animation: circle-1 2s linear;
+        }
+      }
     }
     &__info {
       flex: 1;
@@ -712,31 +719,25 @@ footer {
     }
     &:nth-child(3),
     &:nth-child(1) {
-      .use-svg {
-        transform: rotate(-110deg);
-      }
-      &:hover {
+      .use-item__pic.animated {
         .use-svg {
+          transform: rotate(-110deg);
           animation: rotate110 2.5s linear;
         }
       }
     }
     &:nth-child(2) {
-      .use-svg {
-        transform: rotate(90deg);
-      }
-      &:hover {
+      .use-item__pic.animated {
         .use-svg {
+          transform: rotate(90deg);
           animation: rotate90 2.5s linear;
         }
       }
     }
-    &:nth-child(4):hover {
-      .use-svg {
-        transform: rotate(0deg);
-      }
-      &:hover {
+    &:nth-child(4) {
+      .use-item__pic.animated {
         .use-svg {
+          transform: rotate(0deg);
           animation: rotate0 2.5s linear;
         }
       }
@@ -762,13 +763,6 @@ footer {
       top: 0;
       bottom: 0;
       margin: auto;
-    }
-    &:hover {
-      .use-svg {
-        .c2 {
-          animation: circle-1 2s;
-        }
-      }
     }
   }
   @media screen and (max-width: 1200px) {
@@ -847,6 +841,10 @@ footer {
     stroke-dashoffset: 55;
     stroke: #ff2800;
   }
+}
+
+.circle-1 {
+  animation: circle-1 2s linear;
 }
 
 @-webkit-keyframes rotate0 {
@@ -971,6 +969,10 @@ footer {
     padding: 50px 32px;
     position: relative;
     z-index: 1;
+    .table-wp {
+      position: relative;
+      z-index: 1;
+    }
   }
   @media screen and (max-width: 1200px) {
     &-table {
@@ -1145,6 +1147,7 @@ table {
 .faq {
   padding-top: 77px;
   position: relative;
+  overflow: hidden;
   &:after {
     content: "";
     position: absolute;
@@ -1366,19 +1369,23 @@ table {
 
 .orb-canvas {
   position: absolute;
-  top: -50%;
+  top: 0;
   left: 0;
   width: 35%;
-  height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 0;
   //border-radius: 100% 100% 0 100%;
-  transform: scale(-2, -2);
+  transform: scale(-2, -2) translateY(0%);
   opacity: 0.4;
-  // @media screen and (max-width: 1440px) {
-  //   width: 400px;
-  //   height: 400px;
-  // }
+  &--1 {
+    top: 30%;
+    left: auto;
+    right: -30%;
+    opacity: 0.2;
+  }
+  @media screen and (max-width: 400px) {
+    width: 48%;
+  }
   // @media screen and (max-width: 1200px) {
   //   width: 370px;
   //   height: 370px;

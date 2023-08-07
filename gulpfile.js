@@ -103,7 +103,11 @@ function fonts_build() {
 }
 
 function libs_build() {
-  return src("app/js/libs/**/*.js", { sourcemaps: false, base: "app/js/" }).pipe(dest("dist/js")).pipe(browserSync.stream());
+  return src("app/js/libs/**/*.js", { sourcemaps: false, base: "app/js/" }).pipe(dest("dist/js"));
+}
+
+function favicon() {
+  return src("app/favicon.*", { sourcemaps: false, base: "app/" }).pipe(dest("dist/"));
 }
 
 function startwatch() {
@@ -121,8 +125,10 @@ exports.scripts = scripts;
 exports.images = images;
 exports.layouts = layouts;
 exports.clean = remove_dist;
+exports.libs = libs_build;
+exports.favicon = favicon;
 exports.build = parallel(styles_build, fonts_build, scripts, libs_build);
-exports.default = parallel(styles, scripts, browsersync, startwatch, images, layouts, libs_build);
+exports.default = parallel(styles, scripts, browsersync, startwatch, images, layouts);
 
 /*
 export NVM_DIR=~/.nvm

@@ -2,7 +2,7 @@
 import * as PIXI from "https://cdn.skypack.dev/pixi.js@5.x";
 import { KawaseBlurFilter } from "https://cdn.skypack.dev/@pixi/filter-kawase-blur@3.2.0";
 import SimplexNoise from "https://cdn.skypack.dev/simplex-noise@3.0.0";
-import hsl from "https://cdn.skypack.dev/hsl-to-hex";
+//import hsl from "https://cdn.skypack.dev/hsl-to-hex";
 import debounce from "https://cdn.skypack.dev/debounce";
 
 (function () {
@@ -39,9 +39,9 @@ import debounce from "https://cdn.skypack.dev/debounce";
       // define a base color
       this.baseColor = "#E5202E"; //hsl(this.hue, this.saturation, this.lightness);
       // define a complimentary color, 30 degress away from the base
-      this.complimentaryColor1 = hsl(this.complimentaryHue1, this.saturation, this.lightness);
+      this.complimentaryColor1 = this.baseColor; //hsl(this.complimentaryHue1, this.saturation, this.lightness);
       // define a second complimentary color, 60 degrees away from the base
-      this.complimentaryColor2 = hsl(this.complimentaryHue2, this.saturation, this.lightness);
+      this.complimentaryColor2 = this.baseColor; //hsl(this.complimentaryHue2, this.saturation, this.lightness);
 
       // store the color choices in an array so that a random one can be picked later
       this.colorChoices = [this.baseColor, this.complimentaryColor1, this.complimentaryColor2];
@@ -155,45 +155,63 @@ import debounce from "https://cdn.skypack.dev/debounce";
   }
 
   // Create PixiJS app
-  const app = new PIXI.Application({
-    // render to <canvas class="orb-canvas"></canvas>
-    view: document.querySelector(".orb-canvas"),
-    // auto adjust size to fit the current window
-    resizeTo: window,
-    // transparent background, we will be creating a gradient background later using CSS
-    transparent: true,
-  });
+  // const app = new PIXI.Application({
+  //   // render to <canvas class="orb-canvas"></canvas>
+  //   view: document.querySelector(".orb-canvas"),
+  //   // auto adjust size to fit the current window
+  //   resizeTo: window,
+  //   // transparent background, we will be creating a gradient background later using CSS
+  //   transparent: true,
+  // });
 
-  app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
+  const elm = document.querySelectorAll(".orb-canvas");
+  const apps = [];
+
+  elm.forEach((el) => {
+    console.log(el);
+    let pixi = new PIXI.Application({
+      // render to <canvas class="orb-canvas"></canvas>
+      view: el,
+      // auto adjust size to fit the current window
+      resizeTo: window,
+      // transparent background, we will be creating a gradient background later using CSS
+      transparent: true,
+    });
+    apps.push(pixi);
+  });
 
   // Create colour palette
   const colorPalette = new ColorPalette();
 
-  // Create orbs
-  const orbs = [];
+  apps.forEach((app) => {
+    app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
 
-  for (let i = 0; i < 10; i++) {
-    const orb = new Orb(colorPalette.randomColor());
+    // Create orbs
+    const orbs = [];
 
-    app.stage.addChild(orb.graphics);
+    for (let i = 0; i < 10; i++) {
+      const orb = new Orb(colorPalette.randomColor());
 
-    orbs.push(orb);
-  }
+      app.stage.addChild(orb.graphics);
 
-  // Animate!
-  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    app.ticker.add(() => {
+      orbs.push(orb);
+    }
+
+    // Animate!
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      app.ticker.add(() => {
+        orbs.forEach((orb) => {
+          orb.update();
+          orb.render();
+        });
+      });
+    } else {
       orbs.forEach((orb) => {
         orb.update();
         orb.render();
       });
-    });
-  } else {
-    orbs.forEach((orb) => {
-      orb.update();
-      orb.render();
-    });
-  }
+    }
+  });
 
   //   document.querySelector(".overlay__btn--colors").addEventListener("click", () => {
   //     colorPalette.setColors();

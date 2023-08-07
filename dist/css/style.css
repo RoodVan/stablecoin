@@ -4966,7 +4966,7 @@ footer {
 
 @media screen and (max-width: 620px) {
     .transparency {
-        background: url(../img/bg-s.svg) no-repeat center bottom/cover;
+        background: url(../img/bg-s.svg) no-repeat center center/contain;
     }
 
     .transparency-in {
@@ -4990,6 +4990,7 @@ footer {
     padding-top: 100px;
     padding-bottom: 92px;
     position: relative;
+    overflow: hidden;
 }
 
 .use:after {
@@ -5039,6 +5040,7 @@ footer {
     stroke-width: 1.5;
     stroke-dasharray: 100;
     stroke-dashoffset: 55;
+    will-change: stroke-dashoffset, stroke;
 }
 
 .use-svg .c3 {
@@ -5075,6 +5077,11 @@ footer {
     position: relative;
 }
 
+.use-item__pic.animated .c2 {
+    -webkit-animation: circle-1 2s linear;
+    animation: circle-1 2s linear;
+}
+
 .use-item__info {
     -webkit-box-flex: 1;
     -ms-flex: 1;
@@ -5094,35 +5101,26 @@ footer {
     padding-left: 0;
 }
 
-.use-item:nth-child(3) .use-svg, .use-item:nth-child(1) .use-svg {
+.use-item:nth-child(3) .use-item__pic.animated .use-svg, .use-item:nth-child(1) .use-item__pic.animated .use-svg {
     -webkit-transform: rotate(-110deg);
     -ms-transform: rotate(-110deg);
     transform: rotate(-110deg);
-}
-
-.use-item:nth-child(3):hover .use-svg, .use-item:nth-child(1):hover .use-svg {
     -webkit-animation: rotate110 2.5s linear;
     animation: rotate110 2.5s linear;
 }
 
-.use-item:nth-child(2) .use-svg {
+.use-item:nth-child(2) .use-item__pic.animated .use-svg {
     -webkit-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
-}
-
-.use-item:nth-child(2):hover .use-svg {
     -webkit-animation: rotate90 2.5s linear;
     animation: rotate90 2.5s linear;
 }
 
-.use-item:nth-child(4):hover .use-svg {
+.use-item:nth-child(4) .use-item__pic.animated .use-svg {
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
     transform: rotate(0deg);
-}
-
-.use-item:nth-child(4):hover:hover .use-svg {
     -webkit-animation: rotate0 2.5s linear;
     animation: rotate0 2.5s linear;
 }
@@ -5150,11 +5148,6 @@ footer {
     top: 0;
     bottom: 0;
     margin: auto;
-}
-
-.use-item:hover .use-svg .c2 {
-    -webkit-animation: circle-1 2s;
-    animation: circle-1 2s;
 }
 
 @media screen and (max-width: 1200px) {
@@ -5250,6 +5243,11 @@ footer {
         stroke-dashoffset: 55;
         stroke: #ff2800;
     }
+}
+
+.circle-1 {
+    -webkit-animation: circle-1 2s linear;
+    animation: circle-1 2s linear;
 }
 
 @-webkit-keyframes rotate0 {
@@ -5420,6 +5418,11 @@ footer {
     border-radius: 17px;
     background: rgba(13, 20, 30, 0.68);
     padding: 50px 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.staking-table .table-wp {
     position: relative;
     z-index: 1;
 }
@@ -5635,6 +5638,7 @@ table {
 .faq {
     padding-top: 77px;
     position: relative;
+    overflow: hidden;
 }
 
 .faq:after {
@@ -5939,16 +5943,28 @@ table {
 
 .orb-canvas {
     position: absolute;
-    top: -50%;
+    top: 0;
     left: 0;
     width: 35%;
-    height: 100%;
     pointer-events: none;
-    z-index: -1;
-    -webkit-transform: scale(-2, -2);
-    -ms-transform: scale(-2, -2);
-    transform: scale(-2, -2);
+    z-index: 0;
+    -webkit-transform: scale(-2, -2) translateY(0%);
+    -ms-transform: scale(-2, -2) translateY(0%);
+    transform: scale(-2, -2) translateY(0%);
     opacity: 0.4;
+}
+
+.orb-canvas--1 {
+    top: 30%;
+    left: auto;
+    right: -30%;
+    opacity: 0.2;
+}
+
+@media screen and (max-width: 400px) {
+    .orb-canvas {
+        width: 48%;
+    }
 }
 
 .preloader {

@@ -16,9 +16,10 @@
     <!-- iOS Safari -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#000" />
 
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" href="favicon.svg" />
 
-    <link rel="stylesheet" href="css/style.min.css?v=0.1" />
+    <link rel="stylesheet" href="css/style.min.css?v=0.2" />
   </head>
   <body>
     <div class="wrapper">
@@ -164,17 +165,17 @@
         <!-- ./ transparency -->
 
         <section class="use" id="use">
+          <canvas class="orb-canvas"></canvas>
           <div class="use-in container">
             <h2 class="title wow zoomIn" data-wow-delay="0.3">Why should you use <span>Stablecoin?</span></h2>
 
             <div class="use-list">
               <div class="use-item">
-                <div class="use-item__pic">
+                <div class="use-item__pic wow">
                   <img src="img/use-1.png" class="use-item__img" alt="" />
                   <svg class="use-svg" width="100%" height="100%" viewBox="0 0 36 36">
                     <circle class="c1" cx="18" cy="18" r="15.91549430918954" />
                     <circle class="c2" cx="18" cy="18" r="15.91549430918954" />
-                    <!-- <circle class="c3" cx="18" cy="18" r="15.91549430918954" /> -->
                   </svg>
                 </div>
                 <div class="use-item__info wow fadeInUp" data-wow-delay="0.3">
@@ -187,7 +188,7 @@
               </div>
 
               <div class="use-item">
-                <div class="use-item__pic">
+                <div class="use-item__pic wow">
                   <img src="img/use-2.png" class="use-item__img" alt="" />
                   <svg class="use-svg" width="100%" height="100%" viewBox="0 0 36 36">
                     <circle class="c1" cx="18" cy="18" r="15.91549430918954" />
@@ -204,7 +205,7 @@
               </div>
 
               <div class="use-item">
-                <div class="use-item__pic">
+                <div class="use-item__pic wow">
                   <img src="img/use-3.png" class="use-item__img" alt="" />
                   <svg class="use-svg" width="100%" height="100%" viewBox="0 0 36 36">
                     <circle class="c1" cx="18" cy="18" r="15.91549430918954" />
@@ -221,7 +222,7 @@
               </div>
 
               <div class="use-item">
-                <div class="use-item__pic">
+                <div class="use-item__pic wow">
                   <img src="img/use-4.png" class="use-item__img" alt="" />
                   <svg class="use-svg" width="100%" height="100%" viewBox="0 0 36 36">
                     <circle class="c1" cx="18" cy="18" r="15.91549430918954" />
@@ -314,70 +315,72 @@
             </div>
 
             <div class="staking-table wow zoomIn" data-wow-delay="0.3">
-              <table width="100%" class="table">
-                <thead>
-                  <th class="txt-left">Od > Do STC</th>
-                  <th class="txt-center">Staking program</th>
-                  <th class="txt-center">Mésitní odména</th>
-                  <th class="txt-center">Délka programu</th>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">100001 -> 250000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Exclusive</td>
-                    <td class="txt-center" data-title="Mésitní odména">1.9%</td>
-                    <td class="txt-center" data-title="Délka programu">36 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">100001 -> 250000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Exclusive</td>
-                    <td class="txt-center" data-title="Mésitní odména">1.6%</td>
-                    <td class="txt-center" data-title="Délka programu">12 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Dynamic</td>
-                    <td class="txt-center" data-title="Mésitní odména">1.5%</td>
-                    <td class="txt-center" data-title="Délka programu">36 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Dynamic</td>
-                    <td class="txt-center" data-title="Mésitní odména">1.5%</td>
-                    <td class="txt-center" data-title="Délka programu">12 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Dynamic</td>
-                    <td class="txt-center" data-title="Mésitní odména">0.8%</td>
-                    <td class="txt-center" data-title="Délka programu">36 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">10001 - 30000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Advance</td>
-                    <td class="txt-center" data-title="Mésitní odména">0.8%</td>
-                    <td class="txt-center" data-title="Délka programu">36 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">10001 - 30000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Advance</td>
-                    <td class="txt-center" data-title="Mésitní odména">0.6%</td>
-                    <td class="txt-center" data-title="Délka programu">12 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">5000 -> 10000 STC</td>
-                    <td class="txt-center" data-title="Staking program">Basic</td>
-                    <td class="txt-center" data-title="Mésitní odména">0.7%</td>
-                    <td class="txt-center" data-title="Délka programu">36 mésicú</td>
-                  </tr>
-                  <tr>
-                    <td class="txt-left" data-title="Od > Do STC">5000 -> 10000</td>
-                    <td class="txt-center" data-title="Staking program">Basic</td>
-                    <td class="txt-center" data-title="Mésitní odména">0.5%</td>
-                    <td class="txt-center" data-title="Délka programu">12 mésicú</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="table-wp">
+                <table width="100%" class="table">
+                  <thead>
+                    <th class="txt-left">Od > Do STC</th>
+                    <th class="txt-center">Staking program</th>
+                    <th class="txt-center">Mésitní odména</th>
+                    <th class="txt-center">Délka programu</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">100001 -> 250000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Exclusive</td>
+                      <td class="txt-center" data-title="Mésitní odména">1.9%</td>
+                      <td class="txt-center" data-title="Délka programu">36 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">100001 -> 250000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Exclusive</td>
+                      <td class="txt-center" data-title="Mésitní odména">1.6%</td>
+                      <td class="txt-center" data-title="Délka programu">12 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Dynamic</td>
+                      <td class="txt-center" data-title="Mésitní odména">1.5%</td>
+                      <td class="txt-center" data-title="Délka programu">36 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Dynamic</td>
+                      <td class="txt-center" data-title="Mésitní odména">1.5%</td>
+                      <td class="txt-center" data-title="Délka programu">12 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">50001 -> 100000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Dynamic</td>
+                      <td class="txt-center" data-title="Mésitní odména">0.8%</td>
+                      <td class="txt-center" data-title="Délka programu">36 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">10001 - 30000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Advance</td>
+                      <td class="txt-center" data-title="Mésitní odména">0.8%</td>
+                      <td class="txt-center" data-title="Délka programu">36 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">10001 - 30000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Advance</td>
+                      <td class="txt-center" data-title="Mésitní odména">0.6%</td>
+                      <td class="txt-center" data-title="Délka programu">12 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">5000 -> 10000 STC</td>
+                      <td class="txt-center" data-title="Staking program">Basic</td>
+                      <td class="txt-center" data-title="Mésitní odména">0.7%</td>
+                      <td class="txt-center" data-title="Délka programu">36 mésicú</td>
+                    </tr>
+                    <tr>
+                      <td class="txt-left" data-title="Od > Do STC">5000 -> 10000</td>
+                      <td class="txt-center" data-title="Staking program">Basic</td>
+                      <td class="txt-center" data-title="Mésitní odména">0.5%</td>
+                      <td class="txt-center" data-title="Délka programu">12 mésicú</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </section>
@@ -409,6 +412,7 @@
         <!-- ./ about -->
 
         <section class="faq" id="faq">
+          <canvas class="orb-canvas"></canvas>
           <div class="faq-in wow fadeInUp" data-wow-delay="0.3">
             <h2 class="title">FAQ<span>s</span></h2>
             <div class="faq-list">
@@ -505,7 +509,7 @@
     </div>
 
     <script src="js/libs/jquery.min.js"></script>
-    <script src="js/core.min.js?v=0.02"></script>
-    <script src="js/libs/tui.js" type="module"></script>
+    <script src="js/core.min.js?v=0.03"></script>
+    <script src="js/libs/tui.js?v=0.03" type="module"></script>
   </body>
 </html>

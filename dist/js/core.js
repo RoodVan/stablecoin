@@ -5011,7 +5011,7 @@
   ];
   return V.use(re), V;
 });
-//# sourceMappingURL=swiper-bundle.min.js.map
+
 //WOW
 (function (global, factory) {
   if (typeof define === "function" && define.amd) {
@@ -5429,7 +5429,7 @@
         value: function resetAnimation(event) {
           if (event.type.toLowerCase().indexOf("animationend") >= 0) {
             var target = event.target || event.srcElement;
-            target.className = target.className.replace(this.config.animateClass, "").trim();
+            //target.className = target.className.replace(this.config.animateClass, "").trim();
           }
         },
       },
