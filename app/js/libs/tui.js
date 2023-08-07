@@ -155,63 +155,45 @@ import debounce from "https://cdn.skypack.dev/debounce";
   }
 
   // Create PixiJS app
-  // const app = new PIXI.Application({
-  //   // render to <canvas class="orb-canvas"></canvas>
-  //   view: document.querySelector(".orb-canvas"),
-  //   // auto adjust size to fit the current window
-  //   resizeTo: window,
-  //   // transparent background, we will be creating a gradient background later using CSS
-  //   transparent: true,
-  // });
-
-  const elm = document.querySelectorAll(".orb-canvas");
-  const apps = [];
-
-  elm.forEach((el) => {
-    console.log(el);
-    let pixi = new PIXI.Application({
-      // render to <canvas class="orb-canvas"></canvas>
-      view: el,
-      // auto adjust size to fit the current window
-      resizeTo: window,
-      // transparent background, we will be creating a gradient background later using CSS
-      transparent: true,
-    });
-    apps.push(pixi);
+  const app = new PIXI.Application({
+    // render to <canvas class="orb-canvas"></canvas>
+    view: document.querySelector(".orb-canvas"),
+    // auto adjust size to fit the current window
+    resizeTo: window,
+    // transparent background, we will be creating a gradient background later using CSS
+    transparent: true,
   });
+
+  app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
 
   // Create colour palette
   const colorPalette = new ColorPalette();
 
-  apps.forEach((app) => {
-    app.stage.filters = [new KawaseBlurFilter(30, 10, true)];
+  // Create orbs
+  const orbs = [];
 
-    // Create orbs
-    const orbs = [];
+  for (let i = 0; i < 10; i++) {
+    const orb = new Orb(colorPalette.randomColor());
 
-    for (let i = 0; i < 10; i++) {
-      const orb = new Orb(colorPalette.randomColor());
+    app.stage.addChild(orb.graphics);
 
-      app.stage.addChild(orb.graphics);
+    orbs.push(orb);
+  }
 
-      orbs.push(orb);
-    }
-
-    // Animate!
-    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      app.ticker.add(() => {
-        orbs.forEach((orb) => {
-          orb.update();
-          orb.render();
-        });
-      });
-    } else {
+  // Animate!
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    app.ticker.add(() => {
       orbs.forEach((orb) => {
         orb.update();
         orb.render();
       });
-    }
-  });
+    });
+  } else {
+    orbs.forEach((orb) => {
+      orb.update();
+      orb.render();
+    });
+  }
 
   //   document.querySelector(".overlay__btn--colors").addEventListener("click", () => {
   //     colorPalette.setColors();
